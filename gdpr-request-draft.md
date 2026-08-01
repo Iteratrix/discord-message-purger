@@ -1,3 +1,6 @@
+> **Template.** Fill in every `[BRACKETED]` field before sending. Do not commit a
+> filled-in copy to version control — it contains your account identifiers.
+
 **To:** privacy@discord.com
 **Subject:** GDPR Article 17 — Request for Complete Erasure of Personal Data
 
@@ -8,15 +11,15 @@ To the Discord Privacy Team,
 I am writing to exercise my right to erasure ("right to be forgotten") under Article 17 of the General Data Protection Regulation (GDPR).
 
 **Account details:**
-- Username: deltave
-- User ID: 322506070649995265
-- Account email: mimirs@gmail.com
+- Username: [YOUR USERNAME]
+- User ID: [YOUR USER ID]
+- Account email: [YOUR ACCOUNT EMAIL]
 
 I am in the process of deleting my Discord account and request the complete erasure of all personal data Discord holds about me. Before initiating account deletion, I have taken the following steps to remove my own data:
 
 1. Requested and received my GDPR data package export.
-2. Used the data package to identify and delete all messages I authored — approximately 221,619 messages across 359 channels, including DMs, group DMs, server channels, and threads.
-3. Removed approximately 15,837 reactions I placed on other users' messages.
+2. Used the data package to identify and delete all messages I authored — approximately [MESSAGE COUNT] messages across [CHANNEL COUNT] channels, including DMs, group DMs, server channels, and threads.
+3. Removed approximately [REACTION COUNT] reactions I placed on other users' messages.
 4. Cleared my profile information (avatar, banner, bio, pronouns, display name).
 5. Left all servers and removed all friend/block relationships.
 

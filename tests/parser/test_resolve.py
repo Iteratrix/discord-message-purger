@@ -11,11 +11,11 @@ from discord_purger.parser.resolve import PackageRoot, resolve_channel_id
 
 
 def test_resolve_channel_id_with_c_prefix():
-    assert resolve_channel_id("c464051583559139340") == "464051583559139340"
+    assert resolve_channel_id("c100000000000000001") == "100000000000000001"
 
 
 def test_resolve_channel_id_bare():
-    assert resolve_channel_id("464051583559139340") == "464051583559139340"
+    assert resolve_channel_id("100000000000000001") == "100000000000000001"
 
 
 def test_resolve_channel_id_not_a_channel():

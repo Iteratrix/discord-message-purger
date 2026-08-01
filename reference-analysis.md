@@ -521,9 +521,9 @@ Flat map of channel ID strings to human-readable names:
 
 ```json
 {
-  "464051583559139340": "general",
-  "706821432894211234": "Direct Message with SomeUser",
-  "893274612345678901": "Group DM Name"
+  "100000000000000001": "general",
+  "100000000000000002": "Direct Message with SomeUser",
+  "100000000000000003": "Group DM Name"
 }
 ```
 
@@ -531,7 +531,7 @@ Flat map of channel ID strings to human-readable names:
 
 ```json
 {
-  "id": "464051583559139340",
+  "id": "100000000000000001",
   "type": 0,
   "name": "general",
   "guild": {"id": "123456789012345678", "name": "My Server"},
@@ -570,13 +570,13 @@ Array of message objects. **Only YOUR sent messages** are included.
 ```json
 [
   {
-    "ID": "747951969171275807",
+    "ID": "200000000000000001",
     "Timestamp": "2020-08-24 19:32:14.534000+00:00",
     "Contents": "Hello world",
     "Attachments": ""
   },
   {
-    "ID": "747952108338094100",
+    "ID": "200000000000000002",
     "Timestamp": "2020-08-24 19:32:47.752000+00:00",
     "Contents": "Check this out",
     "Attachments": "https://cdn.discordapp.com/attachments/.../image.png"
@@ -595,8 +595,8 @@ Array of message objects. **Only YOUR sent messages** are included.
 
 ```csv
 ID,Timestamp,Contents,Attachments
-747951969171275807,2020-08-24 19:32:14.534000+00:00,Hello world,
-747952108338094100,2020-08-24 19:32:47.752000+00:00,Check this out,https://cdn.discordapp.com/...
+200000000000000001,2020-08-24 19:32:14.534000+00:00,Hello world,
+200000000000000002,2020-08-24 19:32:47.752000+00:00,Check this out,https://cdn.discordapp.com/...
 ```
 
 Same four fields as the JSON format.
