@@ -13,6 +13,7 @@ from .models import DeletionManifest, DeletionResult
 from .state import DeletionState
 
 FLUSH_INTERVAL = 50  # flush state every N operations
+MAX_REQUEUES = 2  # times a rate-limited message goes back on the queue before it counts as failed
 
 
 async def run_deletion(
@@ -114,6 +115,8 @@ async def _delete_channel(
         if on_progress and queue:
             on_progress("channel_start", channel_id, str(len(queue)))
 
+        requeues: dict[str, int] = {}
+
         while queue and not shutdown.is_set():
             msg_id = queue.popleft()
 
@@ -138,8 +141,19 @@ async def _delete_channel(
                     result.messages_skipped += 1
                     if on_progress:
                         on_progress("skipped", channel_id, msg_id)
-            except RateLimitExceeded:
-                queue.append(msg_id)
+            except RateLimitExceeded as exc:
+                # The client has already retried; give it a couple more turns
+                # at the back of the queue, then record it as failed instead of
+                # retrying forever.
+                attempts = requeues.get(msg_id, 0)
+                if attempts < MAX_REQUEUES:
+                    requeues[msg_id] = attempts + 1
+                    queue.append(msg_id)
+                else:
+                    state.mark_failed(channel_id, msg_id, str(exc))
+                    result.messages_failed += 1
+                    if on_progress:
+                        on_progress("failed", channel_id, msg_id)
 
             if op_counter.increment() % FLUSH_INTERVAL == 0:
                 state.flush()
